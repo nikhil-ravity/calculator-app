@@ -1,5 +1,5 @@
 # Multi-stage build for React app
-FROM node:18-alpine as build
+FROM node:12.22.9-alpine as build
 
 # Set working directory
 WORKDIR /app
@@ -29,4 +29,5 @@ COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 
 # Start nginx
+
 CMD ["nginx", "-g", "daemon off;"]
