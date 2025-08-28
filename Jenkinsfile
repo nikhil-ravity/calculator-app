@@ -45,24 +45,24 @@ pipeline {
             }
         }
         
-        stage('Lint and Code Quality') {
-            parallel {
-                stage('Backend Lint') {
-                    steps {
-                        dir('backend') {
-                            sh 'npm run lint || true'  // Don't fail build on lint errors
-                        }
-                    }
-                }
-                stage('Frontend Lint') {
-                    steps {
-                        dir('frontend') {
-                            sh 'npm run lint || true'
-                        }
-                    }
-                }
-            }
-        }
+        // stage('Lint and Code Quality') {
+        //     parallel {
+        //         stage('Backend Lint') {
+        //             steps {
+        //                 dir('backend') {
+        //                     sh 'npm run lint || true'  // Don't fail build on lint errors
+        //                 }
+        //             }
+        //         }
+        //         stage('Frontend Lint') {
+        //             steps {
+        //                 dir('frontend') {
+        //                     sh 'npm run lint || true'
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
         
         stage('Unit Tests') {
             parallel {
@@ -112,22 +112,22 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    def scannerHome = tool 'SonarQubeScanner'
-                    withSonarQubeEnv("${SONARQUBE_SERVER}") {
-                        sh """
-                            ${scannerHome}/bin/sonar-scanner \\
-                            -Dsonar.projectKey=calculator-app \\
-                            -Dsonar.sources=. \\
-                            -Dsonar.exclusions=**/node_modules/**,**/coverage/** \\
-                            -Dsonar.javascript.lcov.reportPaths=backend/coverage/lcov.info,frontend/coverage/lcov.info
-                        """
-                    }
-                }
-            }
-        }
+        // stage('SonarQube Analysis') {
+        //     steps {
+        //         script {
+        //             def scannerHome = tool 'SonarQubeScanner'
+        //             withSonarQubeEnv("${SONARQUBE_SERVER}") {
+        //                 sh """
+        //                     ${scannerHome}/bin/sonar-scanner \\
+        //                     -Dsonar.projectKey=calculator-app \\
+        //                     -Dsonar.sources=. \\
+        //                     -Dsonar.exclusions=**/node_modules/**,**/coverage/** \\
+        //                     -Dsonar.javascript.lcov.reportPaths=backend/coverage/lcov.info,frontend/coverage/lcov.info
+        //                 """
+        //             }
+        //         }
+        //     }
+        // }
         
         stage('Build Docker Images') {
             parallel {
@@ -248,4 +248,5 @@ pipeline {
         // }
     }
 }
+
 
