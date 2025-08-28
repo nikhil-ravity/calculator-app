@@ -1,5 +1,5 @@
 # Use Node.js LTS version
-FROM node:18-alpine
+FROM node:12.22.9-alpine
 
 # Set working directory
 WORKDIR /app
@@ -31,4 +31,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost:5000/api/health || exit 1
 
 # Start the application
+
 CMD ["npm", "start"]
