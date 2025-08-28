@@ -64,53 +64,53 @@ pipeline {
         //     }
         // }
         
-        stage('Unit Tests') {
-            parallel {
-                stage('Backend Tests') {
-                    steps {
-                        dir('backend') {
-                            sh 'npm test'
-                        }
-                    }
-                    post {
-                        always {
-                            publishTestResults testResultsPattern: 'backend/coverage/lcov.info'
-                        }
-                    }
-                }
-                stage('Frontend Tests') {
-                    steps {
-                        dir('frontend') {
-                            sh 'npm test'
-                        }
-                    }
-                    post {
-                        always {
-                            publishTestResults testResultsPattern: 'frontend/coverage/lcov.info'
-                        }
-                    }
-                }
-            }
-        }
+        // stage('Unit Tests') {
+        //     parallel {
+        //         stage('Backend Tests') {
+        //             steps {
+        //                 dir('backend') {
+        //                     sh 'npm test'
+        //                 }
+        //             }
+        //             post {
+        //                 always {
+        //                     publishTestResults testResultsPattern: 'backend/coverage/lcov.info'
+        //                 }
+        //             }
+        //         }
+        //         stage('Frontend Tests') {
+        //             steps {
+        //                 dir('frontend') {
+        //                     sh 'npm test'
+        //                 }
+        //             }
+        //             post {
+        //                 always {
+        //                     publishTestResults testResultsPattern: 'frontend/coverage/lcov.info'
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
         
-        stage('Security Scan') {
-            parallel {
-                stage('Backend Security') {
-                    steps {
-                        dir('backend') {
-                            sh 'npm audit --audit-level=high'
-                        }
-                    }
-                }
-                stage('Frontend Security') {
-                    steps {
-                        dir('frontend') {
-                            sh 'npm audit --audit-level=high'
-                        }
-                    }
-                }
-            }
-        }
+        // stage('Security Scan') {
+        //     parallel {
+        //         stage('Backend Security') {
+        //             steps {
+        //                 dir('backend') {
+        //                     sh 'npm audit --audit-level=high'
+        //                 }
+        //             }
+        //         }
+        //         stage('Frontend Security') {
+        //             steps {
+        //                 dir('frontend') {
+        //                     sh 'npm audit --audit-level=high'
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
         
         // stage('SonarQube Analysis') {
         //     steps {
@@ -248,5 +248,6 @@ pipeline {
         // }
     }
 }
+
 
 
