@@ -81,9 +81,3 @@ Submit a pull request
 
 License
 MIT License
-
-### package.json (Root)
-{
-  "name": "calculator-app",
-  "version": "1.0.0",
-  "description": "A modern calculator application with React frontend and Node
