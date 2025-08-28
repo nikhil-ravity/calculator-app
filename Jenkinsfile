@@ -236,15 +236,16 @@ pipeline {
                 reportName: 'Frontend Coverage Report'
             ])
         }
-        success {
-            slackSend channel: '#deployments',
-                      color: 'good',
-                      message: "✅ Calculator App deployment successful - Build #${env.BUILD_NUMBER}"
-        }
-        failure {
-            slackSend channel: '#deployments',
-                      color: 'danger',
-                      message: "❌ Calculator App deployment failed - Build #${env.BUILD_NUMBER}"
-        }
+        // success {
+        //     slackSend channel: '#deployments',
+        //               color: 'good',
+        //               message: "✅ Calculator App deployment successful - Build #${env.BUILD_NUMBER}"
+        // }
+        // failure {
+        //     slackSend channel: '#deployments',
+        //               color: 'danger',
+        //               message: "❌ Calculator App deployment failed - Build #${env.BUILD_NUMBER}"
+        // }
     }
 }
+
