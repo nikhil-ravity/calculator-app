@@ -1,0 +1,38 @@
+.display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.display-value {
+  font-size: 2rem;
+  color: white;
+  font-weight: 300;
+  text-align: right;
+  word-break: break-all;
+}
+
+.display-value.error {
+  color: #ff6b6b;
+  font-size: 1.2rem;
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #4ecdc4;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

@@ -1,0 +1,52 @@
+.btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-operation {
+  background: rgba(255, 107, 107, 0.8);
+}
+
+.btn-operation:hover:not(:disabled) {
+  background: rgba(255, 107, 107, 1);
+}
+
+.btn-equals {
+  background: rgba(78, 205, 196, 0.8);
+}
+
+.btn-equals:hover:not(:disabled) {
+  background: rgba(78, 205, 196, 1);
+}
+
+.btn-clear {
+  background: rgba(255, 159, 67, 0.8);
+}
+
+.btn-clear:hover:not(:disabled) {
+  background: rgba(255, 159, 67, 1);
+}
