@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:12.22.9-alpine
+FROM node:22.19.0-alpine
 WORKDIR /app
 
 # Install serve package globally
@@ -21,4 +21,5 @@ EXPOSE 5000
 
 # Start the static server with serve
 CMD ["serve", "-s", "build", "-l", "5000"]
+
 
