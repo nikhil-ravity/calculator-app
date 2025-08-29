@@ -1,33 +1,23 @@
 # Multi-stage build for React app
 FROM node:12.22.9-alpine as build
-
-# Set working directory
 WORKDIR /app
-
-# Copy package files
 COPY package*.json ./
-
-# Install dependencies
 RUN npm ci
-
-# Copy source code
 COPY . .
-
-# Build the app
 RUN npm run build
 
 # Production stage
-FROM nginx:alpine
+FROM node:12.22.9-alpine
+WORKDIR /app
 
-# Copy custom nginx config
-COPY nginx.conf /etc/nginx/nginx.conf
+# Install serve package globally
+RUN npm install -g serve
 
-# Copy built app from previous stage
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy build artifacts from build stage
+COPY --from=build /app/build ./build
 
-# Expose port
-EXPOSE 80
+# Expose port 5000 (or any other preferred port)
+EXPOSE 5000
 
-# Start nginx
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start the static server with serve
+CMD ["serve", "-s", "build", "-l", "5000"]
