@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   backend:
     build:
@@ -26,7 +25,7 @@ services:
       dockerfile: Dockerfile
     container_name: calculator-frontend
     ports:
-      - "80:80"
+      - "80:5000"               # Map host port 80 to container port 5000
     depends_on:
       - backend
     networks:
