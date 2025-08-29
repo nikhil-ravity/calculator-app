@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     environment {
         DOCKER_REPO = 'calculator-app'
         BUILD_TAG = "${env.BUILD_NUMBER}"
@@ -19,7 +18,7 @@ pipeline {
                     steps {
                         dir('backend') {
                             script {
-                                docker.build("${DOCKER_REPO}-backend:${BUILD_TAG}")
+                                sh "docker build --no-cache -t ${DOCKER_REPO}-backend:${BUILD_TAG} ."
                             }
                         }
                     }
@@ -28,7 +27,7 @@ pipeline {
                     steps {
                         dir('frontend') {
                             script {
-                                docker.build("${DOCKER_REPO}-frontend:${BUILD_TAG}")
+                                sh "docker build --no-cache -t ${DOCKER_REPO}-frontend:${BUILD_TAG} ."
                             }
                         }
                     }
