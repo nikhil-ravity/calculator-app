@@ -5,9 +5,17 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
+<<<<<<< HEAD
   path: ./kubernetes            # relative to the repo root
   prune: true
   sourceRef:
     kind: GitRepository
     name: calculator-app                    # name of your Flux GitRepository resource
+=======
+  path: ./kubernetes                   # relative to the repo root
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: calculator-app               # name of your Flux GitRepository resource
+>>>>>>> fcc0b38 (updated files from azure)
     namespace: flux-system

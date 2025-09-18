@@ -17,5 +17,5 @@ spec:
       - name: frontend
         image: azurekuberegistry.azurecr.io/calculator-frontend:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5000
 
