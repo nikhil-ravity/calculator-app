@@ -9,5 +9,5 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: calculator-app-repo               # name of your Flux GitRepository resource
+    name: calculator-app                    # name of your Flux GitRepository resource
     namespace: flux-system
