@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: calculator-app          # This name must match the name in your Kustomization spec
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  url: https://github.com/nikhil-ravity/calculator-app.git
+  ref:
+    branch: main
